@@ -2,56 +2,54 @@ class Stack:
   '''Classe pilha representada com um dicionário'''
 
   def __init__(self):
-    self.__count = 0
+    self._count = 0
     self._items = {}
   
-  ''' --- Metodos --- 
-    
-     push(element)
-     pop()
-     peek()
-     _clear()
-     size()
-     is_empty()   
   '''
+  --- Metodos --- 
+    
+  append(element)
+  pop()
+  peek_last()
+  _clear()
+  size()
+  is_empty()  
+  search(element)
+  to_string() 
+  ''' 
 
-  @property
-  def count(self):
-    return self.__count
-
-  @count.setter
-  def count(self, value):
-    self.__count = value  
-
-  def push(self, element):
+  def append(self, element):
     if element:
-      self._items[self.count] = element
-      self.count += 1
+      self._items[self._count] = element
+      self._count += 1
       return True
     return False
 
   def pop(self):
     if self.is_empty():
       return None
-    self.count -= 1
-    result = self._items[self.count]  
-    del self._items[self.count]
+    self._count -= 1
+    result = self._items[self._count]  
+    del self._items[self._count]
     return result
 
-  def peek(self):
+  def peek_last(self):
     if not self.is_empty():
-      return self._items[self.count - 1]
+      return self._items[self._count - 1]
     return None  
 
   def _clear(self):
-    self.count = 0
+    self._count = 0
     self._items = {}  
 
   def size(self):
-    return self.count    
+    return self._count    
 
   def is_empty(self):
     return self.size() == 0
+
+  def search(self, element):
+    return element in self._items.values()  
 
   def to_string(self):
     values = self._items.values()  

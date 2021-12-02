@@ -1,10 +1,10 @@
-import sys
-import os
+from sys import path
+from os import getcwd
 '''
 Para importar modulos em outros diretórios devemos passar o caminho completo
 Caso não funcione coloque o caminho completo no segundo parametro do metodo: path.insert()
 '''
-sys.path.insert(1, f'{os.getcwd()}/estruturaDeDados/listas/listaLigada')
+path.insert(1, f'{getcwd()}/estruturas/listas/listaLigada')
 
 from linkedList import LinkedList
  

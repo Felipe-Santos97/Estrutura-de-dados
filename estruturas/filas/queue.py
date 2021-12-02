@@ -13,12 +13,12 @@ class Queue:
    
     enqueue(element)
     dequeue()
-    peek()
+    peek_first()
     peek_last()
     is_empty()
     size()
     search(element)
-    clear()
+    _clear()
     to_string()
   '''    
   
@@ -32,12 +32,12 @@ class Queue:
   def dequeue(self):
     if self.is_empty():
       return False
-    result = self.peek()
+    result = self.peek_first()
     del self._items[self._first_element]
     self._first_element += 1
     return result  
 
-  def peek(self):
+  def peek_first(self):
     if self.is_empty():
       return None
     return self._items[self._first_element]  
@@ -45,7 +45,7 @@ class Queue:
   def peek_last(self):
     if self.is_empty():
       return None
-    return self._items[self._count - 1]    
+    return self._items[self.size() - 1]    
 
   def is_empty(self):
     return self.size() == 0
@@ -59,7 +59,7 @@ class Queue:
       return True
     return False   
 
-  def clear(self):
+  def _clear(self):
     self._count = 0
     self._first_element = 0
     self._items = {}

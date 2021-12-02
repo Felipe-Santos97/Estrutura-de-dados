@@ -6,30 +6,31 @@ class LinkedList:
     self._head = None
 
   '''
-   --- Métodos ---
+  --- Métodos ---
 
-   append(element)
-   insert(index, element)
-   remove_at(index)
-   remove(element)  
-   get_element_at(index)
-   index_of(element)
-   search(element)
-   size()
-   is_empty()
-   clear()
-   to_string()
+  append(element)
+  insert(index, element)
+  remove_at(index)
+  remove(element)  
+  get_element_at(index)
+  index_of(element)
+  search(element)
+  size()
+  is_empty()
+  _clear()
+  to_string()
   '''   
 
   def append(self, element):
     if element:
-      if self._head:
+      node = Node(element)
+      if not self.is_empty():
         '''Se a lista não estiver vazia pegamos o ultimo elemento'''
         last = self.get_element_at(self.size() - 1) 
-        last._next = Node(element)
+        last._next = node
       else:
         '''Se a lista estiver vazia'''
-        self._head = Node(element)    
+        self._head = node   
       self._count += 1
       return True
     return False  
@@ -65,8 +66,9 @@ class LinkedList:
 
   def remove(self, element):
     index = self.index_of(element)
-    result = self.remove_at(index) if index else False
-    return result 
+    if index != None:
+      return self.remove_at(index) 
+    return False 
       
   def get_element_at(self, index):
     '''Apartir de um indice retorna o elemento correspondente'''
@@ -100,7 +102,7 @@ class LinkedList:
   def is_empty(self):
     return self.size() == 0
 
-  def clear(self):  
+  def _clear(self):  
     self._count = 0
     self._head = None
 
