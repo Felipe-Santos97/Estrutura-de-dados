@@ -21,22 +21,21 @@ class LinkedList:
   to_string()
   '''   
 
-  def append(self, element):
-    if element:
-      node = Node(element)
-      if not self.is_empty():
-        '''Se a lista não estiver vazia pegamos o ultimo elemento'''
-        last = self.get_element_at(self.size() - 1) 
-        last._next = node
-      else:
-        '''Se a lista estiver vazia'''
-        self._head = node   
-      self._count += 1
-      return True
-    return False  
+  def append(self, element):   
+    node = Node(element)
+    if not self.is_empty():
+      '''Se a lista não estiver vazia pegamos o ultimo elemento'''
+      last = self.get_element_at(self.size() - 1) 
+      last._next = node
+    else:
+      '''Se a lista estiver vazia'''
+      self._head = node   
+    self._count += 1
+    return True
+     
 
   def insert(self, index, element):
-    if index >= 0 and index <= self.size() and element:
+    if index >= 0 and index <= self.size():
       node = Node(element)
       if index == 0:
         node._next = self._head

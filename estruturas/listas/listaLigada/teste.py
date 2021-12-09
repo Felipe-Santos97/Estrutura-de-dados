@@ -8,7 +8,6 @@ for i in range(1, 11):
 
 print(lista_ligada.to_string())
 
-print('-=' * 20)
 
 
   

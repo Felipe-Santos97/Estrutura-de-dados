@@ -19,11 +19,9 @@ class Stack:
   ''' 
 
   def append(self, element):
-    if element:
-      self._items[self._count] = element
-      self._count += 1
-      return True
-    return False
+    self._items[self._count] = element
+    self._count += 1
+    return True   
 
   def pop(self):
     if self.is_empty():

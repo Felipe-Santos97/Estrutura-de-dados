@@ -29,7 +29,7 @@ class Set:
     return element in self.values() 
 
   def add(self, element):
-    if not self.has(element) and element:
+    if not self.has(element):
       self._items[str(element)] = element
       return True
     return False      

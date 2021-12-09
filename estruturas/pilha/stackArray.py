@@ -17,11 +17,8 @@ class Stack:
   '''
 
   def append(self, element):
-    if element:
-      self._items.append(element)
-      return True
-    else:
-      return False  
+    self._items.append(element)
+    return True
 
   def pop(self):
     if self.is_empty():
